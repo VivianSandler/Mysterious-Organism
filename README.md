@@ -1,1 +1,1 @@
-Challenge Project from Codecademy's Front-End Engineer Career Path course
+Mysterious Organism - Intermediate JavaScript Challenge Project from Codecademy (Career Path: Front-End Engineer)
