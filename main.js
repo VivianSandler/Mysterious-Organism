@@ -44,6 +44,21 @@ const pAequorFactory = (specimenNum, dna) => {
         } have ${sharedPercentage.toFixed(2)}% DNA in common`
       );
     },
+    // Checking changes of survival of P. aequor
+    willLikelySurvive(){
+      let cOrGBases = 0;
+      for (i = 0; i < this.dna.length; i++){
+        if (this.dna[i] === 'C' || this.dna[i] === 'G'){
+          cOrGBases++;
+        }
+      }
+      let survivalPercentage = (cOrGBases / this.dna.length * 100);
+      if (survivalPercentage >= 60) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   };
 };
 
@@ -71,3 +86,6 @@ let pAequor2 = pAequorFactory(63, [
 ]);
 
 console.log(pAequor.compareDNA(pAequor2));
+pAequor2.mutate();
+console.log(pAequor2)
+console.log(pAequor.willLikelySurvive());
