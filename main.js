@@ -62,6 +62,24 @@ const pAequorFactory = (specimenNum, dna) => {
   };
 };
 
+//Finding 30 instances of P. aequor that are likely to survive in their natural environment
+let survivingPAequor = [];
+let j = 1;
+while (survivingPAequor.length < 30){
+  let arrOfPAequor = [];
+  arrOfPAequor.push(pAequorFactory(j, mockUpStrand()));
+  for (obj of arrOfPAequor){
+    if (obj.willLikelySurvive()){
+      survivingPAequor.push(obj);
+    }
+  }
+  j++;
+}
+
+// Logging the 30 surviving P. aequor instances
+console.log(survivingPAequor); 
+
+
 const pAequor = pAequorFactory(1, mockUpStrand());
 console.log(pAequor);
 // pAequor.mutate();
