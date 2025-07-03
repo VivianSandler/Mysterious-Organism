@@ -44,47 +44,33 @@ const pAequorFactory = (specimenNum, dna) => {
         } have ${sharedPercentage.toFixed(2)}% DNA in common`
       );
     },
-    // Checking changes of survival of P. aequor
-    willLikelySurvive(){
+    // Checking chances of survival of P. aequor in its natural environment
+    willLikelySurvive() {
       let cOrGBases = 0;
-      for (i = 0; i < this.dna.length; i++){
-        if (this.dna[i] === 'C' || this.dna[i] === 'G'){
+      for (i = 0; i < this.dna.length; i++) {
+        if (this.dna[i] === "C" || this.dna[i] === "G") {
           cOrGBases++;
         }
       }
-      let survivalPercentage = (cOrGBases / this.dna.length * 100);
+      let survivalPercentage = (cOrGBases / this.dna.length) * 100;
       if (survivalPercentage >= 60) {
         return true;
       } else {
         return false;
       }
-    }
+    },
   };
 };
 
-//Finding 30 instances of P. aequor that are likely to survive in their natural environment
-let survivingPAequor = [];
-let j = 1;
-while (survivingPAequor.length < 30){
-  let arrOfPAequor = [];
-  arrOfPAequor.push(pAequorFactory(j, mockUpStrand()));
-  for (obj of arrOfPAequor){
-    if (obj.willLikelySurvive()){
-      survivingPAequor.push(obj);
-    }
-  }
-  j++;
-}
-
-// Logging the 30 surviving P. aequor instances
-console.log(survivingPAequor); 
-
-
+// Creating and logging an instance of P. aequor
 const pAequor = pAequorFactory(1, mockUpStrand());
 console.log(pAequor);
-// pAequor.mutate();
-// console.log(pAequor);
 
+// Mutating one random base of DNA of pAequor and logging the result
+pAequor.mutate();
+console.log(pAequor);
+
+// Manutally creating a second instance of P. aequor to compare to the mutated version of the first instance made above
 let pAequor2 = pAequorFactory(63, [
   "T",
   "T",
@@ -102,8 +88,21 @@ let pAequor2 = pAequorFactory(63, [
   "C",
   "C",
 ]);
-
 console.log(pAequor.compareDNA(pAequor2));
-pAequor2.mutate();
-console.log(pAequor2)
-console.log(pAequor.willLikelySurvive());
+
+//Finding 30 instances of P. aequor that are likely to survive in their natural environment
+let survivingPAequor = [];
+let j = 1;
+while (survivingPAequor.length < 30) {
+  let arrOfPAequor = [];
+  arrOfPAequor.push(pAequorFactory(j, mockUpStrand()));
+  for (obj of arrOfPAequor) {
+    if (obj.willLikelySurvive()) {
+      survivingPAequor.push(obj);
+    }
+  }
+  j++;
+}
+
+//Logging the 30 instances of P. aequor that can survive in their natural environment
+console.log(survivingPAequor);
