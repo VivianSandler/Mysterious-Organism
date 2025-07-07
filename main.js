@@ -59,6 +59,20 @@ const pAequorFactory = (specimenNum, dna) => {
         return false;
       }
     },
+    complementStrand() {
+      return this.dna.map((base) => {
+        switch (base) {
+          case "A":
+            return "T";
+          case "T":
+            return "A";
+          case "C":
+            return "G";
+          case "G":
+            return "C";
+        }
+      });
+    },
   };
 };
 
@@ -69,6 +83,9 @@ console.log(pAequor);
 // Mutating one random base of DNA of pAequor and logging the result
 pAequor.mutate();
 console.log(pAequor);
+
+// Finding the complement of the latest version (mutated) of pAequor
+console.log(pAequor.complementStrand());
 
 // Manutally creating a second instance of P. aequor to compare to the mutated version of the first instance made above
 let pAequor2 = pAequorFactory(63, [
@@ -90,7 +107,7 @@ let pAequor2 = pAequorFactory(63, [
 ]);
 console.log(pAequor.compareDNA(pAequor2));
 
-//Finding 30 instances of P. aequor that are likely to survive in their natural environment
+// Finding 30 instances of P. aequor that are likely to survive in their natural environment
 let survivingPAequor = [];
 let j = 1;
 while (survivingPAequor.length < 30) {
@@ -104,5 +121,5 @@ while (survivingPAequor.length < 30) {
   j++;
 }
 
-//Logging the 30 instances of P. aequor that can survive in their natural environment
+// Logging the 30 instances of P. aequor that can survive in their natural environment
 console.log(survivingPAequor);
