@@ -30,17 +30,17 @@ const pAequorFactory = (specimenNum, dna) => {
       return this.dna;
     },
     // Comparing the DNA sequences of different P. aequor
-    compareDNA(pAequor2) {
+    compareDNA(OtherPAequor) {
       let commonBases = 0;
       for (i = 0; i < this.dna.length; i++) {
-        if (this.dna[i] === pAequor2.dna[i]) {
+        if (this.dna[i] === OtherPAequor.dna[i]) {
           commonBases++;
         }
       }
       const sharedPercentage = (commonBases / this.dna.length) * 100;
       console.log(
         `specimen #${this.specimenNum} and specimen #${
-          pAequor2.specimenNum
+          OtherPAequor.specimenNum
         } have ${sharedPercentage.toFixed(2)}% DNA in common`
       );
     },
