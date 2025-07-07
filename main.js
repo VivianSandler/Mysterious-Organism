@@ -13,12 +13,12 @@ const mockUpStrand = () => {
   return newStrand;
 };
 
-// Factory function to create multiple objects
+// Factory function to create multiple objects that simulate the DNA of P. aequor
 const pAequorFactory = (specimenNum, dna) => {
   return {
     specimenNum: specimenNum,
     dna: dna,
-    // simulating P. aequor‘s high rate of mutation
+    // Simulating P. aequor‘s high rate of mutation
     mutate() {
       let randomBaseIndex = Math.floor(Math.random() * this.dna.length);
       let currentBase = this.dna[randomBaseIndex];
@@ -59,6 +59,7 @@ const pAequorFactory = (specimenNum, dna) => {
         return false;
       }
     },
+    // Finding the complement of P. aequor's DNA strand
     complementStrand() {
       return this.dna.map((base) => {
         switch (base) {
