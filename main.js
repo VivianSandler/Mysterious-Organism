@@ -32,7 +32,7 @@ const pAequorFactory = (specimenNum, dna) => {
     // Comparing the DNA sequences of different P. aequor
     compareDNA(OtherPAequor) {
       let commonBases = 0;
-      for (i = 0; i < this.dna.length; i++) {
+      for (let i = 0; i < this.dna.length; i++) {
         if (this.dna[i] === OtherPAequor.dna[i]) {
           commonBases++;
         }
@@ -47,7 +47,7 @@ const pAequorFactory = (specimenNum, dna) => {
     // Checking chances of survival of P. aequor in its natural environment
     willLikelySurvive() {
       let cOrGBases = 0;
-      for (i = 0; i < this.dna.length; i++) {
+      for (let i = 0; i < this.dna.length; i++) {
         if (this.dna[i] === "C" || this.dna[i] === "G") {
           cOrGBases++;
         }
